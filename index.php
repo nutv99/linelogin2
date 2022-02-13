@@ -33,8 +33,9 @@
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").style.display = "block"
-
+     alert(profile.displayName);
       document.getElementById("pictureUrl").src = profile.pictureUrl
+	    
 	  document.getElementById("userdata").innerHTML = profile.userId + '<br>';
 	  document.getElementById("userdata").innerHTML += profile.displayName + '<br>';
 	  document.getElementById("userdata").innerHTML += profile.statusMessage + '<br>';
