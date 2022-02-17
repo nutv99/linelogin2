@@ -3,6 +3,27 @@ $content = file_get_contents('php://input');
 $access_token = 'N0IzKf3n/tuu23eKxvUEkAY6Afzj8nu+lQYp+FyOAZXSVofsrCArcwRBOJKEbssASNnN5S35vUE5yiQ3dPcvlRqu9G0IVPHVxUHUHW63dUUUdxfcWpbZUj7iu8ImPFKK8LnAdy5wGDxvMhUD1A1fugdB04t89/1O/w1cDnyilFU='; 
 echo 'Test'; 
 
+$events = json_decode($content, true);
+// Validate parsed JSON data
+  if (!is_null($events['events'])) {
+      foreach ($events['events'] as $event) {
+          if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+              $text = $event['message']['text'];
+	      $replyToken = $event['replyToken'] ;  	
+	      $sValue[] = $text;
+	      $sValue[] = $replyToken ;  
+	      $sValue[] = $event['source']['userId'];              
+          }                
+      }    
+  }  
+
+$image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "image";
+        $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
+        $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
+        replyMsg($arrayHeader,$arrayPostData);
+
 $arrayJson = json_decode($content, true);
     
     $arrayHeader = array();
