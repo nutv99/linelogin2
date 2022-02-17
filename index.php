@@ -112,6 +112,46 @@ function pushImage($ImageFileName,$access_token,$replyToken) {
 } 
 
 
+function getPortImageURL($contact9No,$userID) { 
+
+
+       $data = array (
+        'contact9No' => $contact9No,
+        'key2' => 'value2',
+        'key3' => 'value3',
+	    'userid' => $userID       
+        );
+        
+        $params = '';
+        foreach($data as $key=>$value)
+                $params .= $key.'='.$value.'&';
+         
+        $params = trim($params, '&'); 
+
+	$params = "contact9No=" . $contact9No ;
+	$params .= "&userid=" . $userID ;
+
+    $url= "https://talonplus.co.th/port/class/clsCreatePortImageByCurl.php" ;
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url.'?'.$params ); //Url together with parameters
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Return data instead printing directly in Browser
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 170); //Timeout after 7 seconds
+    curl_setopt($ch, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    if(curl_errno($ch))  //catch if curl error exists and show it
+      $result =  'Curl error: ' . curl_error($ch);
+    else
+     echo $result;
+         
+    return $result ;
+
+    
+} // end func
+
 return;
  
  ?>
