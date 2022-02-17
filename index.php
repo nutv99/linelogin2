@@ -1,7 +1,7 @@
 <?php
 
 $access_token = 'N0IzKf3n/tuu23eKxvUEkAY6Afzj8nu+lQYp+FyOAZXSVofsrCArcwRBOJKEbssASNnN5S35vUE5yiQ3dPcvlRqu9G0IVPHVxUHUHW63dUUUdxfcWpbZUj7iu8ImPFKK8LnAdy5wGDxvMhUD1A1fugdB04t89/1O/w1cDnyilFU='; 
-
+echo 'Test'; 
 $arrayJson = json_decode($content, true);
     
     $arrayHeader = array();
@@ -29,7 +29,7 @@ if($message == "video"){
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-function replyMsg($arrayHeader,$arrayPostData){
+function replyMsg2($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -90,7 +90,7 @@ $events = json_decode($content, true);
   }  
 } // end func 
 
-function replyMsg2($arrayHeader,$arrayPostData){
+function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
