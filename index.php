@@ -9,9 +9,10 @@ $replyToken = $sValue[1] ;
 pushMessage($text,$access_token,$replyToken) ;
 
     
-    $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+    //$arrayHeader = array();
+//    $arrayHeader[] = "Content-Type: application/json";
+//    $arrayHeader[] = "Authorization: Bearer {$accessToken}"; 
+	$arrayHeader= array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
     
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events']['message']['text'];
