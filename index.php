@@ -8,7 +8,7 @@ $MessageInput = $sValue[0];
 $replyToken =  $sValue[1];  
 $userID = $sValue[2] ;
 
-
+return;
 
 $contact9 = $sValue[0] ;
 $result = getPortImageURL($contact9,$userID) ;
