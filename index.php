@@ -35,6 +35,10 @@ function getInputMessage() {
 $events = json_decode($content, true);
 // Validate parsed JSON data
   if (!is_null($events['events'])) {
+      foreach ($events['events'] as $event) {
+        
+        
+      }
     
   }
  
