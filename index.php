@@ -37,6 +37,8 @@ $events = json_decode($content, true);
   if (!is_null($events['events'])) {
       foreach ($events['events'] as $event) {
           if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+              $text = $event['message']['text'];
+			        $replyToken = $event['replyToken'] ;  		
             
           }
         
