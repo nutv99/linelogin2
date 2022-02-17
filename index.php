@@ -12,7 +12,7 @@ $userID = $sValue[2] ;
 
 $contact9 = $sValue[0] ;
 
-//pushMessage($contact9,$access_token,$replyToken) ;  return ;
+ pushMessage($contact9,$access_token,$replyToken) ;  return ;
 
 //$result = getPortImageURL($contact9,$userID) ;
 //$str    = getPortDataString($contact9) ;
