@@ -1,9 +1,4 @@
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-
-
-
- 
-<?php
+ <?php
 
 $access_token = 'N0IzKf3n/tuu23eKxvUEkAY6Afzj8nu+lQYp+FyOAZXSVofsrCArcwRBOJKEbssASNnN5S35vUE5yiQ3dPcvlRqu9G0IVPHVxUHUHW63dUUUdxfcWpbZUj7iu8ImPFKK8LnAdy5wGDxvMhUD1A1fugdB04t89/1O/w1cDnyilFU='; 
 
@@ -35,104 +30,13 @@ if (trim($resultAr[0]) == "Fail") {
 //pushMessage($result,$access_token,$replyToken) ; 
 echo " Curl Result-->" . $result ;
 return;
-$text = "งง ???? " .$sValue[0]; 
-$text .= " พิมพ์  P123456789 เพื่อดู ใบ Port งาน--->" . $resp; 
-//echo $text ;
-
-
-$ImageFileName = "https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&h=350" ;
-//pushMessage($text,$access_token,$replyToken) ; 
-//pushImage($ImageFileName,$access_token,$replyToken);
-
-pushMessage($text,$access_token,$replyToken) ; 
-
-//return;
-
-//pushMessage($resp,$access_token,$replyToken) ;  
-
-if ($ActionType == "C1" ) {
-
-   $resp = getData($MessageInput) ;    
-   pushMessage($resp,$access_token,$replyToken) ; 
-   $ImageFileName = "https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&h=350" ;
-   pushImage($ImageFileName,$access_token,$replyToken);
-   return;
-}
-
-if ($ActionType == "P" || $ActionType == "p" ) {
-
-   $resp = getData($MessageInput) ;    
-   //pushMessage($resp,$access_token,$replyToken) ; 
-   $ImageFileName = $resp  ;
-   pushImage($ImageFileName,$access_token,$replyToken);
-   return;
-} 
+ 
+ 
+ 
 
 
 
-//$resp = getData($MessageInput) ;
-
-$text = "งง ???? " .$sValue[0]; 
-$text .= " พิมพ์  P123456789 เพื่อดู ใบ Port งาน--->" . $resp; 
-pushMessage($text,$access_token,$replyToken) ; 
-//return;
-//$ImageFileName = $resp  ;
-//$ImageFileName ="https://www.talonplus.co.th/port/images/portimages/port_20524_609263650.png";
-//pushImage($ImageFileName,$access_token,$replyToken);
-
-return;
-
-
-
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-// Validate parsed JSON data
-if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-
-			// Build message to reply back
-
-			$text = getData() ;
-
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
-		}
-	}
-}
-echo "OK";
-
+ 
 
 
 function getData($MessageInput) { 
