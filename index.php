@@ -7,25 +7,25 @@ $access_token = 'N0IzKf3n/tuu23eKxvUEkAY6Afzj8nu+lQYp+FyOAZXSVofsrCArcwRBOJKEbss
 $MessageInput = $sValue[0];  
 $replyToken =  $sValue[1];  
 $userID = $sValue[2] ;
-
-
-
 $contact9 = $sValue[0] ;
+pushMessage($contact9,$access_token,$replyToken) ;  return ;
 
- pushMessage($contact9,$access_token,$replyToken) ;  return ;
 
-//$result = getPortImageURL($contact9,$userID) ;
-//$str    = getPortDataString($contact9) ;
+
+ 
+
+$result = getPortImageURL($contact9,$userID) ;
+$str    = getPortDataString($contact9) ;
 $resultAr = explode("|",$result); 
 
 
 if (trim($resultAr[0]) == "Fail") {
-  //pushMessage($resultAr[1],$access_token,$replyToken) ; 
+  pushMessage($resultAr[1],$access_token,$replyToken) ; 
   return;
 }  else {
   $ImageFileName = $result ; 
-  //pushImage($ImageFileName,$access_token,$replyToken);  
-  //pushMessage($str,$access_token,$replyToken) ; 
+  pushImage($ImageFileName,$access_token,$replyToken);  
+  pushMessage($str,$access_token,$replyToken) ; 
 }
 
 
